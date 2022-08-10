@@ -1,0 +1,44 @@
+﻿@model List<ModelLibro>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header text-sm-center"><h2>Lista de Libros</h2></div>
+    <div class="card-body">
+        <a asp-action="GuardarForm" asp-controller="CRUD" class="btn btn-primary btn-success">Agregar Libro</a>
+        <hr />
+        <table class="table d-lg-table table-bordered p-2 table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Autor</th>
+                    <th class="text-center">Género</th>
+                    <th class="text-center">Páginas</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">x</th>
+                    <th class="text-center">x</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@item.nombre</td>
+                        <td class="text-center">@item.autor</td>
+                        <td class="text-center">@item.genero</td>
+                        <td class="text-center">@item.numPaginas</td>
+                        <td class="text-center">$@item.precio</td>
+                        <td class="text-center">
+                            <a asp-action="Editar" asp-controller="CRUD" asp-route-id="@item.id" class="btn btn-primary btn-sm btn-warning">Editar</a>
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Eliminar" asp-controller="CRUD" asp-route-id="@item.id" class="btn btn-primary btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model ModelLibro
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header text-lg-center"><h2>Editar Libro</h2></div>
+    <div class="card-body">
+        <form asp-action="Editar" asp-controller="CRUD" method="post">
+            <input asp-for="id" type="hidden" class="form-control" />
+            @*Input Nombre*@
+            <div class="mb-3">
+                <label class="form-label">Nombre:</label>
+                <input asp-for="nombre" type="text" class="form-control">
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            @*Input Autor*@
+            <div class="mb-3">
+                <label class="form-label">Autor:</label>
+                <input asp-for="autor" type="text" class="form-control">
+                <span asp-validation-for="autor" class="text-danger"></span>
+            </div>
+            @*Input Genero*@
+            <div class="mb-3">
+                <label class="form-label">Género:</label>
+                <input asp-for="genero" type="text" class="form-control">
+                <span asp-validation-for="genero" class="text-danger"></span>
+            </div>
+            @*Input NumPaginas*@
+            <div class="mb-3">
+                <label class="form-label">Numero de Páginas:</label>
+                <input asp-for="numPaginas" type="number" class="form-control">
+                <span asp-validation-for="numPaginas" class="text-danger"></span>
+            </div>
+            @*Input Precio*@
+            <div class="mb-3">
+                <label class="form-label">Precio:</label>
+                <input asp-for="precio" type="number" class="form-control">
+                <span asp-validation-for="precio" class="text-danger"></span>
+            </div>
+            @*Boton*@
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Listar" asp-controller="CRUD" class="btn btn-primary btn-warning">Volver al listado</a>
+        </form>
+    </div>
+</div>
